@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ProductCard from "./ProductCard";
 
 const products = [
@@ -204,6 +204,7 @@ const products = [
   },
 ];
 
+
 interface ProductListProps {
   category: string;
   searchText: string;
@@ -218,20 +219,58 @@ const ProductList: React.FC<ProductListProps> = ({ category, searchText }) => {
   );
 
   return (
-    <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-      {filteredProducts.map((product) => (
+    <Box display="flex" flexDirection="column" alignItems="center" width="100%">
+      {filteredProducts.length > 0 ? (
         <Box
-          key={product.id}
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="center" 
+          width="100%"
+          gap={3} 
+        >
+          {filteredProducts.map((product) => (
+            <Box
+              key={product.id}
+              display="flex"
+              justifyContent="center"
+              mb={2}
+              sx={{
+                width: { xs: "100%", sm: "48%", md: "31%", lg: "23%" }, 
+                minWidth: "250px", 
+                maxWidth: "300px",  
+              }}
+            >
+              <ProductCard product={product} />
+            </Box>
+          ))}
+        </Box>
+      ) : (
+        <Box
           display="flex"
           justifyContent="center"
-          mb={2}
-          sx={{
-            width: { xs: "100%", sm: "48%", md: "31%", lg: "23%" },
-          }}
+          alignItems="center"
+          height="80vh" 
+          width="100%"
         >
-          <ProductCard product={product} />
+          <Typography
+            variant="h6"
+            sx={{
+              textAlign: "center",
+              fontSize: "1.5em",
+              color: "#ff0000",
+              padding: "20px",
+              border: "2px solid white",
+              borderRadius: "10px",
+              backgroundColor: "#eee",
+              fontWeight: "bolder",
+              opacity: 0.8,
+              marginLeft:80
+            }}
+          >
+           products Not found
+          </Typography>
         </Box>
-      ))}
+      )}
     </Box>
   );
 };
