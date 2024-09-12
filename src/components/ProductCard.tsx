@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-interface Product {
+export interface Product {
   id: number;
   image: string;
   title: string;
-  price: string;
+  price: number;
   category: string;
   rating: number;
 }
@@ -20,6 +20,9 @@ interface Product {
 interface ProductCardProps {
   product: Product;
 }
+
+
+
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [currentRating, setCurrentRating] = useState<number>(product.rating);
@@ -37,8 +40,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <>
       <Card
         sx={{
-          width: "250px", // Set a fixed width
-          height: "350px", // Set a fixed height
+          width: "250px", 
+          height: "350px", 
           backgroundColor: "rgba(255, 255, 255, 0.8)",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           borderRadius: 2,
