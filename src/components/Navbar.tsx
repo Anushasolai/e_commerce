@@ -9,6 +9,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
+import React from "react";
 
 interface NavbarProps {
   setSearchText: React.Dispatch<React.SetStateAction<string>>;

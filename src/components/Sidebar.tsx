@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal, TextField, Box, Typography } from "@mui/material";
 import { gql, useMutation } from "@apollo/client";
 
-const CREATE_PRODUCT = gql`
+export const CREATE_PRODUCT = gql`
   mutation CreateProduct(
     $title: String!
     $category: String!
@@ -26,6 +26,7 @@ const CREATE_PRODUCT = gql`
     }
   }
 `;
+
 
 interface Product {
   id: number;

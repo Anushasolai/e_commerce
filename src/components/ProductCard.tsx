@@ -6,6 +6,7 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
+import React from "react";
 import { useState } from "react";
 
 export interface Product {
@@ -20,9 +21,6 @@ export interface Product {
 interface ProductCardProps {
   product: Product;
 }
-
-
-
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [currentRating, setCurrentRating] = useState<number>(product.rating);
@@ -40,8 +38,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <>
       <Card
         sx={{
-          width: "250px", 
-          height: "350px", 
+          width: "250px",
+          height: "350px",
           backgroundColor: "rgba(255, 255, 255, 0.8)",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           borderRadius: 2,
