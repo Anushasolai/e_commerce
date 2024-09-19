@@ -1,11 +1,11 @@
-{
-  "compilerOptions": {
+{"compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "commonjs", // Use 'esnext' or 'es6' for ES module compatibility
     "jsx": "react-jsx", // or "react" if you are using an older version
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
   }
 }

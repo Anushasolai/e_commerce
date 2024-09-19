@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -13,14 +13,17 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^6.0.2",
+    "@mui/icons-material": "^6.1.0",
     "@mui/material": "^6.0.2",
+    "@types/jwt-decode": "^3.1.0",
     "axios": "^1.7.7",
     "graphql": "^16.9.0",
+    "jwt-decode": "^4.0.0",
     "msw": "^2.4.6",
     "node-fetch": "^3.3.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "@apollo/client": "^3.11.8",
