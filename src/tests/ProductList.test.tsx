@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-
-import { Product } from "../components/ProductCard";
 import ProductList from "../components/ProductList";
+import { Product } from "../components/ProductCard";
 
 const products: Product[] = [
   {
@@ -22,8 +21,19 @@ const products: Product[] = [
   },
 ];
 
+const mockOnAddToCart = jest.fn();
+const mockOnPageChange = jest.fn();
+
 test("renders ProductList component and displays products", () => {
-  render(<ProductList products={products} />);
+  render(
+    <ProductList
+      products={products}
+      onAddToCart={mockOnAddToCart}
+      currentPage={1}
+      totalPages={2}
+      onPageChange={mockOnPageChange}
+    />
+  );
 
   expect(screen.getByText(/Product 1/i)).toBeInTheDocument();
   expect(screen.getByText(/Product 2/i)).toBeInTheDocument();

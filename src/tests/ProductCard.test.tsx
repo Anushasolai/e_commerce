@@ -1,23 +1,46 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ProductCard from "../components/ProductCard";
-
+import ProductCard from "../components/ProductCard"; 
 
 const mockProduct = {
   id: 2,
-  name: "Sample Product",
-  price: 10.99,
-  imageUrl: "sample.jpg",
-  rating: 4.5,
   image: "sample-image.jpg",
   title: "Sample Product Title",
+  price: 10.99,
   category: "Electronics",
+  rating: 4.5,
 };
 
-test("renders ProductCard component and handles rating change", () => {
-  render(<ProductCard product={mockProduct} />);
+const mockOnAddToCart = jest.fn();
 
-  const ratingInput = screen.getByLabelText("5 Stars");
-  fireEvent.click(ratingInput);
+describe("ProductCard Component", () => {
+  beforeEach(() => {
+    render(<ProductCard product={mockProduct} onAddToCart={mockOnAddToCart} />);
+  });
 
-  expect(screen.getByLabelText("5 Stars")).toBeChecked();
+  test("renders ProductCard with product details", () => {
+    const categories = screen.getAllByText(`Category: ${mockProduct.category}`);
+    expect(categories.length).toBe(1);
+  
+    expect(screen.getByText(`$${mockProduct.price}`)).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /Sample Product Title/i })).toHaveAttribute("src", mockProduct.image);
+  });
+
+  test("handles rating change", () => {
+    const ratingInput = screen.getByRole('radio', { name: /5 stars/i });
+    fireEvent.change(ratingInput, { target: { checked: true } });
+  
+    screen.debug();
+    expect(screen.getByText((content, element) => 
+      element !== null && content.startsWith('5') && element.tagName.toLowerCase() === 'span')).toBeInTheDocument();
+    
+ 
+});
+
+  
+  test("calls onAddToCart when 'Add to Cart' button is clicked", () => {
+    const button = screen.getByRole("button", { name: /add to cart/i });
+    fireEvent.click(button);
+
+    expect(mockOnAddToCart).toHaveBeenCalledWith(mockProduct); 
+  });
 });

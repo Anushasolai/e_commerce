@@ -5,7 +5,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const LOGIN_MUTATION = gql`
+export const LOGIN_MUTATION = gql`
   mutation LoginUser($name: String!, $password: String!) {
     loginUser(name: $name, password: $password) {
       token

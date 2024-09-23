@@ -22,7 +22,7 @@ import {
   Box,
 } from "@mui/material";
 import { jwtDecode } from "jwt-decode";
-import './style.css'
+import "./style.css";
 
 const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -52,7 +52,6 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // Fetch products from GraphQL API
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
@@ -181,7 +180,7 @@ const App: React.FC = () => {
                       onPageChange={setCurrentPage}
                     />
                   </main>
-                  {/* Cart Dialog */}
+
                   <Dialog open={cartOpen} onClose={handleCartClose}>
                     <DialogTitle>Cart Items</DialogTitle>
                     <DialogContent>
