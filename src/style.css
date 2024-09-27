@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: #f9f9f9;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+nav .search-container {
+  position: relative;
+}
+
+nav .search-container input {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 400px;
+}
+
+nav .search-container .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  cursor: pointer;
+}
+
+nav .search-container input:focus {
+  outline: none;
+  border-color: black;
+}
+
+nav .search-container input:hover {
+  border-color: black;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 64px;
+  width: 220px;
+  height: calc(100vh - 64px);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  background-image: url("./images/41a7eb3f6e6d64ad6fec9aad85225e67.jpg");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #aaa;
+  color: black;
+}
+
+.create-product-button {
+  margin-top: 20px;
+}
+
+main {
+  margin-left: 220px;
+  padding: 20px;
+  padding-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
